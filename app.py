@@ -72,4 +72,4 @@ def get_result(task_id):
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5678)
+    app.run(host='0.0.0.0', port=5070, debug=False, use_reloader=False)
