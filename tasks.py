@@ -1,5 +1,4 @@
 from celery import Celery
-from deepface import DeepFace
 import logging
 import os
 
@@ -12,6 +11,7 @@ def verify_face_task(filepath1, filepath2):
     """
     The background task that runs the heavy DeepFace verification.
     """
+    from deepface import DeepFace
     try:
         # Add debugging information
         logging.info(f"Processing files: {filepath1}, {filepath2}")
@@ -84,3 +84,4 @@ def verify_face_task(filepath1, filepath2):
                 os.remove(filepath2)
         except Exception as cleanup_error:
             logging.warning(f"Failed to clean up files: {cleanup_error}")
+
